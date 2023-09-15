@@ -1,7 +1,7 @@
 export default function About() {
     return (
         <main className="flex flex-col gap-10 flex-1 justify-center px-52 text-white">
-            <h1 className="text-2xl font-bold">Sobre a Newsletter "Front-End Insights"</h1>
+            <h1 className="text-2xl font-bold">Sobre a Newsletter &quot;Front-End Insights&quot;</h1>
             <div className="flex flex-col gap-2">
                 <h1 className="text-xl font-bold">O que é a Front-End Insights?</h1>
                 <p className="ps-16">Bem-vindo ao Insights! Somos apaixonados pelo mundo do desenvolvimento Frontend Web e estamos aqui para fornecer a você as informações mais valiosas, atualizações e recursos para aprimorar suas habilidades.</p>
