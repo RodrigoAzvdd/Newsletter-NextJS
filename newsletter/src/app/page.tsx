@@ -1,6 +1,6 @@
 import Form from "@/components/Form";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="flex flex-col gap-10 flex-1 items-center justify-center px-48">
       <section className="text-white text-5xl text-center">
