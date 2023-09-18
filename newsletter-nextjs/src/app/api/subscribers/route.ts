@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import connection from "@/db";
 
 export async function GET(request: Request) {
-    const [rows, fields] = await connection.execute('SELECT * FROM subscribers');
+    const [rows] = await connection.execute('SELECT * FROM subscribers');
     return NextResponse.json(rows)
 }
 
