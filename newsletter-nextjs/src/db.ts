@@ -1,9 +1,9 @@
 import mysql from 'mysql2/promise';
 
 const pool = mysql.createPool({
-  host: 'localhost',
+  host: 'containers-us-west-43.railway.app',
   user: 'root',
-  password: 'root',
+  password: 'E7n7QCwamdzYwR8wXRUU',
   database: 'newsletter-nextjs',
 });
 
