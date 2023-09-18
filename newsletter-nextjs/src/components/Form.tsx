@@ -1,7 +1,24 @@
+'use client'
+
+import axios from "axios"
+import { useRef } from "react"
+
 const Form = () => {
+
+    const input = useRef(null)
+
+    const handleClick = () => {
+        try {
+            axios.post('http://localhost:3000/api/subscribers', { email: input.current.value })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <form action="" className="flex justify-center items-center gap-2">
             <input
+                ref={input}
                 type="email"
                 placeholder="Seu e-mail principal"
                 className={`
@@ -30,6 +47,10 @@ const Form = () => {
                     transition
                     duration-150    
                 `}
+                onClick={e => {
+                    e.preventDefault()
+                    handleClick()
+                }}
             >Se inscrever</button>
         </form>
     )
