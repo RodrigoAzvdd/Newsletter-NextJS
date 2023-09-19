@@ -9,6 +9,7 @@ const Form = () => {
 
     const handleClick = () => {
         try {
+            // https://newsletter-next-js.vercel.app/api/subscribers  ->  usar isso dps
             axios.post('http://localhost:3000/api/subscribers', { email: input.current.value })
         } catch (error) {
             console.log(error);
