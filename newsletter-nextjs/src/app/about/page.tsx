@@ -1,5 +1,3 @@
-import SubList from "@/components/SubList";
-
 export default function About() {
     return (
         <main className="flex flex-col gap-10 flex-1 justify-center px-52 text-white">
@@ -29,7 +27,6 @@ export default function About() {
                     </li>
                 </ul>
             </div>
-            <SubList />
         </main>
     )
 }
