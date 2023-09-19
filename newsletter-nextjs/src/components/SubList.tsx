@@ -26,7 +26,7 @@ const SubList = async () => {
                         <td className="text-center pt-10" colSpan={3}>Nenhum Assinante...</td>
                     </tr>
                     :
-                    subscribers.map(sub => (
+                    subscribers.map((sub: Subscribers) => (
                         <tr key={sub.id}>
                             <td className="px-5 text-lg border-none">{sub.id}</td>
                             <td className="px-5 text-lg border-none">{sub.email}</td>
