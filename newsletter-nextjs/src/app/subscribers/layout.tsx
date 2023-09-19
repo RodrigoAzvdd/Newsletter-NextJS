@@ -1,4 +1,3 @@
-import SubList from "@/components/SubList";
 import { ReactNode } from "react";
 
 export default function SubscribersLayout({ children }: {
