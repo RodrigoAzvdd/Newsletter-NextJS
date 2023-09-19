@@ -1,3 +1,8 @@
+'use client'
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 interface Subscribers {
     create_time: Date;
     update_time: Date;
@@ -5,9 +10,19 @@ interface Subscribers {
     id: number;
 }
 
-const SubList = async () => {
-    const response = await fetch("https://newsletter-next-js.vercel.app/api/subscribers")
-    const subscribers = await response.json()
+const SubList = () => {
+
+    const [subscribers, setSubscribers] = useState([])
+
+    const getSubs = async () => {
+        const response = await axios.get("https://newsletter-next-js.vercel.app/api/subscribers")
+        const data = await response.data
+        setSubscribers(data)
+    }
+
+    useEffect(() => {
+        getSubs()
+    }, [])
 
     return (
         <table className="min-w-full">
