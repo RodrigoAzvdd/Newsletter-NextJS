@@ -1,17 +1,16 @@
-'use client'
-
 import axios from "axios"
 import { useRef } from "react"
 
 const Form = () => {
-
-    const input = useRef(null)
+    const input = useRef<HTMLInputElement>(null)
 
     const handleClick = () => {
         try {
-            axios.post('https://newsletter-next-js.vercel.app/api/subscribers', { email: input.current.value })
+            if (input.current) {
+                axios.post('https://newsletter-next-js.vercel.app/api/subscribers', { email: input.current.value })
+            }
         } catch (error) {
-            console.log(error);
+            console.log(error)
         }
     }
 
