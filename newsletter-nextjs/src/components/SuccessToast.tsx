@@ -11,7 +11,7 @@ const SuccessToast = ({ toastIsOpen }: SuccessToastProps) => {
                 <span>Email Cadastrado.</span>
             </div>
         ) : null
-    );
-};
+    )
+}
 
 export default SuccessToast

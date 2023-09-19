@@ -8,7 +8,7 @@ interface Subscribers {
 }
 
 const SubList = async () => {
-    const subscribers = await (await axios.get("https://newsletter-next-js.vercel.app/api/subscribers")).data
+    const subscribers = (await axios.get("https://newsletter-next-js.vercel.app/api/subscribers")).data
 
     return (
         <table className="min-w-full">
