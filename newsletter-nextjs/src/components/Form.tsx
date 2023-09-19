@@ -1,8 +1,10 @@
+'use client'
+
 import axios from "axios"
 import { useRef } from "react"
 
 const Form = () => {
-    const input = useRef<HTMLInputElement>(null)
+    const input = useRef<HTMLInputElement | null>(null)
 
     const handleClick = () => {
         try {
