@@ -1,5 +1,3 @@
-import axios from "axios";
-
 interface Subscribers {
     create_time: Date;
     update_time: Date;
@@ -8,7 +6,8 @@ interface Subscribers {
 }
 
 const SubList = async () => {
-    const subscribers = (await axios.get("https://newsletter-next-js.vercel.app/api/subscribers")).data
+    const response = await fetch("https://newsletter-next-js.vercel.app/api/subscribers")
+    const subscribers = await response.json()
 
     return (
         <table className="min-w-full">
