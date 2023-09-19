@@ -22,7 +22,7 @@ const SubList = () => {
     }, [subscribers]);
 
     return (
-        <section>
+        <section className="px-14">
             <table className="min-w-full">
                 <thead>
                     <tr className="text-left">
