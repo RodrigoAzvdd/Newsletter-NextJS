@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
 
 interface Subscribers {
     create_time: Date;
@@ -27,7 +26,7 @@ const SubList = async () => {
                     </tr>
                     :
                     subscribers.map((sub: Subscribers) => (
-                        <tr key={sub.id}>
+                        <tr key={sub.id} className="h-10">
                             <td className="px-5 text-lg border-none">{sub.id}</td>
                             <td className="px-5 text-lg border-none">{sub.email}</td>
                             <td className="px-5 text-lg border-none">
