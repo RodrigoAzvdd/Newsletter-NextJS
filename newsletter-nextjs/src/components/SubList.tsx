@@ -14,18 +14,17 @@ interface Subscribers {
 const SubList = () => {
   const [subscribers, setSubscribers] = useState<Subscribers[]>([]);
 
-  const getSubs = async () => {
-    try {
-      const response = await axios.get("https://test-db-prod.vercel.app/api/users");
-      const data = response.data;
-      console.log(data);
-      setSubscribers(data.users);
-    } catch (error) {
-      console.error("Error fetching subscribers:", error);
-    }
-  };
-
   useEffect(() => {
+    const getSubs = async () => {
+      try {
+        const response = await axios.get("https://test-db-prod.vercel.app/api/users");
+        const data = response.data;
+        console.log(data);
+        setSubscribers(data.users);
+      } catch (error) {
+        console.error("Error fetching subscribers:", error);
+      }
+    };
     getSubs();
   }, [subscribers]);
 
