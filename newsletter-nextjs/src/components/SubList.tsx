@@ -4,18 +4,19 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 interface Subscribers {
-    create_time: Date;
-    update_time: Date;
-    email: string;
-    id: number;
+    create_time: Date,
+    update_time: Date,
+    name: string,
+    email: string,
+    id: number,
 }
 
 const SubList = () => {
 
-    const [subscribers, setSubscribers] = useState([])
+    const [subscribers, setSubscribers] = useState<Subscribers[]>([])
 
     const getSubs = async () => {
-        const response = await axios.get("https://newsletter-next-js.vercel.app/api/subscribers")
+        const response = await axios.get("https://test-db-prod.vercel.app/api/users")
         const data = await response.data
         setSubscribers(data)
     }

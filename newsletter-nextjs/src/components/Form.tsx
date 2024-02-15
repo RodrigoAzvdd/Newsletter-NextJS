@@ -5,18 +5,20 @@ import { useRef, useState } from "react"
 import SuccessToast from "./SuccessToast"
 
 const Form = () => {
-    const input = useRef<HTMLInputElement | null>(null)
+    const emailInput = useRef<HTMLInputElement | null>(null)
+    const nameInput = useRef<HTMLInputElement | null>(null)
     const [toastIsOpen, setToastIsOpen] = useState(false)
 
     const handleClick = () => {
         try {
-            if (input.current) {
-                axios.post('https://newsletter-next-js.vercel.app/api/subscribers', { email: input.current.value })
-                input.current.value = ''
+            if (emailInput.current && nameInput.current) {
+                axios.post('https://test-db-prod.vercel.app/api/users', { name: nameInput.current.value, email: emailInput.current.value })
                 setToastIsOpen(true)
                 setTimeout(() => {
                     setToastIsOpen(false)
                 }, 3000);
+            } else {
+                alert('Erro ao enviar informações.')
             }
         } catch (error) {
             console.log(error)
@@ -25,9 +27,30 @@ const Form = () => {
 
     return (
         <>
-            <form action="" className="flex justify-center items-center gap-2">
+            <form className="flex justify-center items-center gap-2">
+
                 <input
-                    ref={input}
+                    ref={nameInput}
+                    type="text"
+                    placeholder="Nome"
+                    className={`
+                    font-semibold
+                    bg-sky-950 
+                    h-12
+                    w-80
+                    px-4 
+                    rounded-sm
+                    text-white
+                    outline-none
+                    border
+                    border-sky-900
+                    focus:border-sky-400
+                `}
+                    required
+                />
+
+                <input
+                    ref={emailInput}
                     type="email"
                     placeholder="Seu e-mail principal"
                     className={`
@@ -45,6 +68,7 @@ const Form = () => {
                 `}
                     required
                 />
+
                 <button
                     className={`
                     bg-sky-600 
