@@ -27,7 +27,7 @@ const SubList = () => {
 
   useEffect(() => {
     getSubs();
-  }, []);
+  }, [subscribers]);
 
   return (
     <>
