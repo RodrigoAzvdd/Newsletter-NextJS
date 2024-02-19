@@ -3,16 +3,41 @@
 import axios from "axios"
 import { useRef, useState } from "react"
 import SuccessToast from "./SuccessToast"
+import nodemailer from 'nodemailer'
 
 const Form = () => {
     const emailInput = useRef<HTMLInputElement | null>(null)
     const nameInput = useRef<HTMLInputElement | null>(null)
     const [toastIsOpen, setToastIsOpen] = useState(false)
 
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        auth: {
+            user: 'emailboasvindasdorod@gmail.com',
+            pass: 'lock kkwl rdfj qrxq'
+        }
+    })
+
+    async function sendMail(email: string) {
+        const info = await transporter.sendMail({
+            from: ' Olá!! <emailboasvindasdorod@gmail.com>',
+            to: email,
+            subject: "Bem vindo!!",
+            text: "Bem vindo, meu amigo :)",
+            html: "<h1>Bem vindo, meu amigo :)</h1>",
+        });
+
+        console.log("Message sent: %s", info.messageId);
+    }
+
+
     const handleClick = () => {
         try {
             if (emailInput.current && nameInput.current) {
                 axios.post('https://test-db-prod.vercel.app/api/users', { name: nameInput.current.value, email: emailInput.current.value })
+                sendMail(emailInput.current.value)
                 setToastIsOpen(true)
                 setTimeout(() => {
                     setToastIsOpen(false)
