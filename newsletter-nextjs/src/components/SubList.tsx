@@ -19,7 +19,6 @@ const SubList = () => {
       try {
         const response = await axios.get("https://test-db-prod.vercel.app/api/users")
         const data = response.data
-        console.log(data)
         setSubscribers(data.users)
       } catch (error) {
         console.error("Error fetching subscribers:", error)
