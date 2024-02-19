@@ -1,7 +1,7 @@
 'use client'
 
-import axios from "axios";
-import { useEffect, useState } from "react";
+import axios from "axios"
+import { useEffect, useState } from "react"
 
 interface Subscribers {
   createdAt: Date;
@@ -13,6 +13,7 @@ interface Subscribers {
 
 const SubList = () => {
   const [subscribers, setSubscribers] = useState<Subscribers[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const getSubs = async () => {
@@ -21,12 +22,17 @@ const SubList = () => {
         const data = response.data
         console.log(data)
         setSubscribers(data.users)
+        setLoading(false)
       } catch (error) {
         console.error("Error fetching subscribers:", error)
       }
     }
     getSubs()
   }, [])
+
+  if (loading) {
+    return <p>Carregando...</p>
+  }
 
   return (
     <>
@@ -39,6 +45,11 @@ const SubList = () => {
           </tr>
         </thead>
         <tbody>
+          {subscribers.length === 0 && (
+            <tr className="text-center">
+              <td className="text-center pt-10" colSpan={3}>Nenhum Assinante...</td>
+            </tr>
+          )}
           {subscribers.map((sub: Subscribers) => (
             <tr key={sub.id} className="h-10">
               <td className="px-5 text-lg border-none">{sub.id}</td>
@@ -48,11 +59,6 @@ const SubList = () => {
               </td>
             </tr>
           ))}
-          {subscribers.length === 0 && (
-            <tr className="text-center">
-              <td className="text-center pt-10" colSpan={3}>Nenhum Assinante...</td>
-            </tr>
-          )}
         </tbody>
       </table>
     </>
@@ -60,3 +66,4 @@ const SubList = () => {
 }
 
 export default SubList
+
