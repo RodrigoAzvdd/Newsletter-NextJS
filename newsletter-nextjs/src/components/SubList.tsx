@@ -47,11 +47,6 @@ const SubList = () => {
               </td>
             </tr>
           ))}
-          {subscribers.length === 0 && (
-            <tr className="text-center">
-              <td className="text-center pt-10" colSpan={3}>Nenhum Assinante...</td>
-            </tr>
-          )}
         </tbody>
       </table>
     </>
