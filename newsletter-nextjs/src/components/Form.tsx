@@ -3,7 +3,6 @@
 import axios from "axios"
 import { useRef, useState } from "react"
 import SuccessToast from "./SuccessToast"
-import sendMail from "@/services/emailService"
 
 const Form = () => {
     const emailInput = useRef<HTMLInputElement | null>(null)
@@ -14,7 +13,7 @@ const Form = () => {
         try {
             if (emailInput.current && nameInput.current) {
                 axios.post('https://test-db-prod.vercel.app/api/users', { name: nameInput.current.value, email: emailInput.current.value })
-                sendMail(emailInput.current.value)
+                axios.post('https://newsletter-next-js.vercel.app/api/sendEmail')
                 setToastIsOpen(true)
                 setTimeout(() => {
                     setToastIsOpen(false)
