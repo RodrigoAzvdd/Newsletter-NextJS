@@ -3,7 +3,8 @@
 import axios from "axios"
 import { useRef, useState } from "react"
 import SuccessToast from "./SuccessToast"
-import nodemailer from 'nodemailer'
+
+const nodemailer = require('nodemailer')
 
 const Form = () => {
     const emailInput = useRef<HTMLInputElement | null>(null)
