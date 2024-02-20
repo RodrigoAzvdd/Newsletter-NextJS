@@ -9,9 +9,9 @@ export default function Loading() {
                 </tr>
             </thead>
             <tbody>
-            <tr className="text-center">
-                        <td className="text-center pt-10 text-xl" colSpan={3}>Carregando Dados...</td>
-                    </tr>
+                <tr className="text-center">
+                    <td className="text-center pt-10 text-xl" colSpan={3}>Carregando Dados...</td>
+                </tr>
             </tbody>
         </table>
     )
