@@ -21,8 +21,8 @@ export default function RootLayout({
         <div className="bg-black min-h-screen flex flex-col">
           <Navbar />
           {children}
-          <footer className='flex py-10 text-white text-base items-center justify-center'>
-            Feito por Rodrigo Azevedo
+          <footer className='flex gap-1 text-xs py-10 text-white md:text-md lg:text-base items-center justify-center'>
+            Feito por <a target='_blank' href='https://github.com/RodrigoAzvdd' className='hover:text-sky-500 duration-200 transition-all cursor-pointer'>Rodrigo Azevedo</a>
           </footer>
         </div>
       </body>
