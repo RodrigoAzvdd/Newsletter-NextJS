@@ -28,8 +28,7 @@ const Form = () => {
 
     return (
         <>
-            <form className="flex justify-center items-center gap-2">
-
+            <form className="flex justify-center items-center gap-2 md:flex-col lg:flex-row">
                 <input
                     ref={nameInput}
                     type="text"
@@ -49,7 +48,6 @@ const Form = () => {
                 `}
                     required
                 />
-
                 <input
                     ref={emailInput}
                     type="email"
@@ -69,7 +67,6 @@ const Form = () => {
                 `}
                     required
                 />
-
                 <button
                     className={`
                     bg-sky-600 
@@ -79,7 +76,9 @@ const Form = () => {
                     text-white
                     hover:bg-sky-800
                     transition
-                    duration-150    
+                    duration-150
+                    md:w-full
+                    lg:w-auto
                 `}
                     onClick={e => {
                         e.preventDefault()
