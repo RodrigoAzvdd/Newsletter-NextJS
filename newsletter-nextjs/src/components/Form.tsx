@@ -28,7 +28,7 @@ const Form = () => {
 
     return (
         <>
-            <form className="flex justify-center items-center gap-2 md:flex-col lg:flex-row">
+            <form className="flex-col flex justify-center items-center gap-2 xl:flex-row lg:flex-row md:flex-col sm:flex-col">
                 <input
                     ref={nameInput}
                     type="text"
@@ -77,7 +77,7 @@ const Form = () => {
                     hover:bg-sky-800
                     transition
                     duration-150
-                    md:w-full
+                    w-full
                     lg:w-auto
                 `}
                     onClick={e => {
