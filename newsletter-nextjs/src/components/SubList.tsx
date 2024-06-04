@@ -1,7 +1,8 @@
 'use client'
 
+import Loading from "@/app/subscribers/loading";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 interface Subscribers {
   createdAt: Date;

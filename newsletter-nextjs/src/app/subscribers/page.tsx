@@ -1,5 +1,7 @@
 import SubList from "@/components/SubList";
 import { Metadata } from "next";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export const metadata: Metadata = {
     title: 'INSIGHTS | Assinantes',
@@ -8,6 +10,8 @@ export const metadata: Metadata = {
 
 export default function Subscribers() {
     return (
-        <SubList />
+        <Suspense fallback={<Loading />}>
+            <SubList />
+        </Suspense>
     )
 }
