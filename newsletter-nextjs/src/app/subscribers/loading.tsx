@@ -1,3 +1,5 @@
+import Loader from "@/components/Loader";
+
 export default function Loading() {
     return (
         <table className="min-w-full">
@@ -10,7 +12,8 @@ export default function Loading() {
             </thead>
             <tbody>
                 <tr className="text-center">
-                    <td className="text-center pt-10 text-xl" colSpan={3}>Carregando Dados...</td>
+                    {/* <td className="text-center pt-10 text-xl" colSpan={3}>Carregando Dados...</td> */}
+                    <Loader />
                 </tr>
             </tbody>
         </table>

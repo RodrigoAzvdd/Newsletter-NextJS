@@ -3,6 +3,7 @@
 import Loading from "@/app/subscribers/loading";
 import axios from "axios";
 import { Suspense, useEffect, useState } from "react";
+import Loader from "./Loader";
 
 interface Subscribers {
   createdAt: Date;
@@ -39,15 +40,17 @@ const SubList = () => {
           </tr>
         </thead>
         <tbody>
-          {subscribers.map((sub: Subscribers) => (
-            <tr key={sub.id} className="h-10">
-              <td className="px-5 text-sm sm:text-lg border-none">{sub.id}</td>
-              <td className="px-5 text-sm sm:text-lg border-none">{sub.name}</td>
-              <td className="px-5 text-sm sm:text-lg border-none">
-                {new Date(sub.createdAt).toLocaleDateString()} as {new Date(sub.createdAt).toLocaleTimeString()}
-              </td>
-            </tr>
-          ))}
+          <Suspense fallback={<Loader />}>
+            {subscribers.map((sub: Subscribers) => (
+              <tr key={sub.id} className="h-10">
+                <td className="px-5 text-sm sm:text-lg border-none">{sub.id}</td>
+                <td className="px-5 text-sm sm:text-lg border-none">{sub.name}</td>
+                <td className="px-5 text-sm sm:text-lg border-none">
+                  {new Date(sub.createdAt).toLocaleDateString()} as {new Date(sub.createdAt).toLocaleTimeString()}
+                </td>
+              </tr>
+            ))}
+          </Suspense>
         </tbody>
       </table>
     </div>
