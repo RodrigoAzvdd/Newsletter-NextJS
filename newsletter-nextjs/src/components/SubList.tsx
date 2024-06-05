@@ -39,7 +39,7 @@ const SubList = () => {
             <th className="font-semibold px-5 border-b-2 border-gray-500 text-white text-sm sm:text-lg p-2">CRIADO EM</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           <Suspense fallback={<Loader />}>
             {subscribers.map((sub: Subscribers) => (
               <tr key={sub.id} className="h-10">
@@ -54,6 +54,7 @@ const SubList = () => {
         </tbody>
       </table>
     </div>
+
   )
 }
 

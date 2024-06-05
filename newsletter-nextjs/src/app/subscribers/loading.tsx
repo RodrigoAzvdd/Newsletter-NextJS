@@ -11,9 +11,12 @@ export default function Loading() {
                 </tr>
             </thead>
             <tbody>
-                <tr className="text-center">
-                    {/* <td className="text-center pt-10 text-xl" colSpan={3}>Carregando Dados...</td> */}
-                    <Loader />
+                <tr>
+                    <td colSpan={3} className="py-8" style={{
+                        paddingLeft: '46%'
+                    }}>
+                        <Loader />
+                    </td>
                 </tr>
             </tbody>
         </table>
